@@ -1,0 +1,124 @@
+Ejercicio 1: Calcular el índice de masa corporal (IMC)
+Descripción: Solicita el peso y la altura de una persona y calcula su IMC. Luego, determina
+si la persona está en un rango de peso saludable, tiene sobrepeso o está bajo de peso.
+
+*
+
+Proceso ej1_calcular_imc
+	
+	Definir peso, altura, formula como real;
+	peso = 0;
+	altura = 0;
+	formula = 0;
+	
+	Escribir "Este programa calculará tu IMC(indice masa corporal)";
+	Escribir "Ingrese su peso: ";
+	Leer peso;
+	
+	Escribir "Ingrese su altura: ";
+	Leer altura;
+	
+	formula = peso/(altura^2);
+	
+	Si formula <= 18.5 Entonces
+		Escribir "IMC = ", formula;
+		Escribir "Estás bajo del peso ideal";
+	SiNo
+		Si formula > 18.5 y formula < 25 Entonces
+			Escribir "IMC = ", formula;
+			Escribir "Peso saludable.";
+		SiNo
+			Si formula > 24 Entonces
+				Escribir "IMC = ", formula;
+				Escribir "Estás con sobrepeso";
+				FinSi
+		FinSi
+	FinSi
+	
+FinProceso
+
+*
+
+-----------------------------------------------------------------------------------------
+
+Ejercicio 2: Calcular el total a pagar por una compra con IVA
+Descripción: Solicita el precio de un producto y calcula el total a pagar con el IVA del 19%.
+Si el precio es mayor a 1000, aplica un descuento del 10%.
+
+*
+
+Proceso ej2_total_mas_iva
+	
+	Definir precio_sin_iva, precio_iva, descuento como real;
+	
+	precio_iva = 0;
+	precio_sin_iva = 0;
+	descuento = 0;
+	
+	Escribir "Este programa calculará el total de tu compra más el IVA.";
+	Escribir "Ingrese el precio del producto: ";
+	Leer precio_sin_iva;
+	
+	precio_iva = precio_sin_iva + (precio_sin_iva*0.19);
+	descuento = precio_iva - (precio_iva*0.10);
+	
+	Si precio_sin_iva > 1000 Entonces
+		Escribir "Tu producto con 10% de descuento queda en: ", descuento;
+	SiNo
+		Escribir "El precio de tu producto con IVA incluído quedaría en: ", precio_iva;
+	FinSi
+	
+FinProceso
+
+*
+
+---------------------------------------------------------------------------------------
+
+Ejercicio 3: Determinar el rango de edad
+Descripción: Solicita la edad de una persona y determina si es un niño (0-12 años),
+adolescente (13-17 años), adulto (18-64 años) o adulto mayor (65 años o más).
+
+*
+
+Proceso ej3_rango_edad
+	
+	Definir edad como entero;
+	
+	Escribir "Este programa determinará tu rango de edad.";
+	Escribir "Ingresa tu edad: ";
+	Leer edad;
+	
+	Si edad >= 0 y edad <= 12 Entonces
+		Escribir "Eres un niño (0 - 12 años).";
+	SiNo
+		Si edad > 12 y edad < 18 Entonces
+			Escribir "Eres un adolescente (13 - 17 años).";
+		SiNo
+			Si edad >= 18 y edad <= 64 Entonces
+				Escribir "Eres un adulto (18 - 64 años).";
+			SiNo
+				Si edad > 64 Entonces
+					Escribir "Eres adulto mayor (65 años o más).";
+				SiNo
+					Escribir "Todavía no naces...";
+				FinSi
+			FinSi
+		FinSi
+	FinSi
+	
+FinProceso
+
+*
+
+---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
