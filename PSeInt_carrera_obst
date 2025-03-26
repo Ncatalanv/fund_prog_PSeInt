@@ -6,29 +6,87 @@ Proceso carrera_obstaculos
 	Escribir "¡Comienza la carrera!";
 	Escribir "Escribe comenzar para iniciar la carrera";
 	Leer comienzo;
+	Limpiar pantalla;
 	Si comienzo = "comenzar" Entonces
 		Escribir "¿Te encuentras una valla? Responde si/ no para continuar: ";
 		Leer valla;
 		Si valla = "si" Entonces
+			Limpiar Pantalla;
 			Escribir ".";
 			Escribir "Debes saltar por la valla";
 			Escribir ".";
-		SiNo
-			Escribir ".";
+			Esperar 2 Segundos;
+			Limpiar Pantalla;
+		SiNo 
+			Limpiar Pantalla;
 			Escribir "Sigue corriendo!";
-			Escribir ".";
+			Escribir "-----------------";
+			Escribir "°-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------";
+			Escribir " °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------";
+			Escribir "    °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------";
+			Escribir "        °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------";
+			Escribir "          °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------";
+			Escribir "           °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------";
+			Escribir "             °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
 		FinSi
 		
-		Escribir "¿Te encuentras un túnel? Responde si/no para continuar: ";
+		Escribir "¿Te encuentras un túnel? Responde si/ no para continuar: ";
 		Leer tunel;
 		Si tunel = "si" Entonces
 			Escribir ".";
 			Escribir "Atraviesas el túnel";
 			Escribir ".";
 		SiNo
-			Escribir ".";
-			Escribir "Continuas corriendo";
-			Escribir ".";
+			Limpiar Pantalla;
+			Escribir "Continuas corriendo!";
+			Escribir "-----------------";
+			Escribir "°-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------";
+			Escribir " °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------";
+			Escribir "    °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------";
+			Escribir "        °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------";
+			Escribir "          °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------";
+			Escribir "           °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------";
+			Escribir "             °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
 		FinSi
 		
 		Escribir "¿Te encuentras una laguna? Responde si/ no para continuar: ";
@@ -39,19 +97,51 @@ Proceso carrera_obstaculos
 			Escribir "Te devuelves y pierdes la carrera:(";
 			Escribir ".";
 		SiNo
-			Escribir ".";
+			Limpiar Pantalla;
+			Escribir "-----------------|";
+			Escribir "°-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------|";
+			Escribir " °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------|";
+			Escribir "    °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------|";
+			Escribir "        °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------|";
+			Escribir "          °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------|";
+			Escribir "           °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
+			Escribir "-----------------|";
+			Escribir "             °-°";
+			Esperar 1 segundos;
+			Limpiar Pantalla;
 			Escribir "¡Felicitaciones! Has llegado a la meta con éxito!!!";
 			Escribir ".";
-	FinSi
+		FinSi
 	SiNo
 		Escribir "¿Que haces?, ¿No vas a correr????";
-		Leer skip1;
+		Esperar 2 segundo;
+		Limpiar Pantalla;
 		Escribir "Te quedas sentado...";
-		Leer skip2;
+		Esperar 2 segundo;
+		Limpiar Pantalla;
 		Escribir "Ves como todos se están alejando...";
-		Leer skip3;
+		Esperar 2 segundo;
+		Limpiar Pantalla;
 		Escribir "Pierdes la carrera.";
-		Leer skip4;
+		Esperar 2 segundo;
+		Limpiar Pantalla;
 		Escribir "????????????????";
 	FinSi
 	
