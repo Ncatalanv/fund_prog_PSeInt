@@ -1,0 +1,18 @@
+Proceso tabla_multiplicacion
+	Definir multiplicacion, valor_mio, contador, multiplicacion_total como entero;
+	multiplicacion = 0;
+	contador = 0;
+	multiplicacion_total = 0;
+	valor_mio = 0;
+	
+	Escribir "Este programa calculará la tabla de multiplicación de un número hasta el 10.";
+	
+	Escribir "Ingrese un número: ";
+	Leer valor_mio;
+	
+	Repetir
+		contador = contador + 1;
+		multiplicacion_total = valor_mio * contador;
+		Escribir "La tabla de multiplicación de ", valor_mio, " por ", contador," es: ", multiplicacion_total;
+	Hasta Que contador >= 10
+FinProceso
