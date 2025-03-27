@@ -112,6 +112,179 @@ FinProceso
 
 ---------------------------------------------------------------------------
 
+Ejercicio 4: Calcular el promedio ponderado de tres notas
+Descripción: Solicita tres notas y sus respectivos pesos, y calcula el promedio ponderado.
+
+*
+
+Proceso ej4_promedio_3_notas
+	
+	Definir nota1, porcentaje1, nota2, porcentaje2, nota3, porcentaje3, total1, total2, total3, suma como real;
+	
+	nota1=0;
+	porcentaje1=0;
+	nota2=0;
+	porcentaje2=0;
+	nota3=0;
+	porcentaje3=0;
+	total1=0;
+	total2=0;
+	total3=0;
+	suma=0;
+	
+	Escribir "Este programa calculará el promedio ponderado de 3 notas.";
+	Escribir "Inserte nota 1: ";
+	Leer nota1;
+	Escribir "Inserte porcentaje: ";
+	Leer porcentaje1;
+	
+	Escribir "Inserte nota2: ";
+	Leer nota2;
+	Escribir "Inserte porcentaje: ";
+	Leer porcentaje2;
+	
+	Escribir "Inserte nota3: ";
+	Leer nota3;
+	Escribir "Inserte porcentaje: ";
+	Leer porcentaje3;
+	
+	total1 = nota1*(porcentaje1/100);
+	total2 = nota2*(porcentaje2/100);
+	total3 = nota3*(porcentaje3/100);
+	
+	suma = total1+total2+total3;
+	
+	Escribir "Tu nota ponderada es de: ", suma;
+	
+FinProceso
+
+*
+
+----------------------------------------------------------------------------------------------
+
+Ejercicio 5: Calcular la edad de una persona en años, meses y días
+Descripción: Solicita la fecha de nacimiento de una persona (día, mes, año) y calcula su
+edad en años, meses y días.
+
+*
+
+*
+
+--------------------------------------------------------------------------------------------------------
+
+Ejercicio 6: Determinar el tipo de triángulo según sus lados
+Descripción: Solicita las longitudes de tres lados y determina si el triángulo es equilátero,
+isósceles o escaleno.
+
+*
+
+Proceso ej6_tipo_triangulo
+	Definir lado1, lado2, lado3 Como Entero;
+	
+	Escribir "Este programa determinara el tipo de triángulo (equilátero, isósceles o escaleno).";
+	
+	Escribir "Ingrese medida lado 1: ";
+	Leer lado1;
+	Escribir "Ingrese medida lado 2: ";
+	Leer lado2;
+	Escribir "Ingrese medida lado 3: ";
+	Leer lado3;
+	
+	Si lado1 = lado2 y lado2 = lado3 Entonces
+		Escribir "Todos los lados iguales, es un triángulo equilátero.";
+			
+	FinSi
+	
+	Si lado1 = lado2 y lado1 <> lado3 Entonces
+		Escribir "Tiene 2 lados iguales, es un triángulo isósceles.";
+	SiNo
+		Si lado1 = lado2 y lado2 <> lado3 Entonces
+			Escribir "Tiene 2 lados iguales, es un triángulo isósceles.";
+		Sino 
+			Si lado2 = lado3 y lado2 <> lado1 Entonces
+				Escribir "Tiene 2 lados iguales, es un triángulo isósceles.";
+			Sino 
+				Si lado2 = lado3 y lado3 <> lado1 Entonces
+					Escribir "Tiene 2 lados iguales, es un triángulo isósceles.";
+				SiNo
+					Si lado3 = lado1 y lado3 <> lado2 Entonces
+						Escribir "Tiene 2 lados iguales, es un triángulo isósceles.";
+					SiNo
+						Si lado3 = lado1 y lado1 <> lado2 Entonces
+							Escribir "Tiene 2 lados iguales, es un triángulo isósceles.";
+							
+						FinSi
+						
+					FinSi
+				FinSi
+			FinSi
+		FinSi
+	FinSi
+	
+	Si lado1 <> lado2 y lado1 <> lado3 y  lado2 <> lado3 Entonces
+		Escribir "Tres lado distintos, es un triángulo escaleno.";
+	FinSi
+	
+FinProceso
+
+*
+
+---------------------------------------------------------------------------------------------------------
+
+Ejercicio 7: Login
+Descripción: Solicita u correo electrónico y una contraseña, para validar el acceso al
+sistema. Los correos válidos para el acceso son pedro@gmail.com y juan@hotmail.com.
+Los dos correos acceden al sistema utilizando la contraseña admin123.
+
+*
+
+Proceso ej7_login
+	
+	Definir correo, contrasena Como Caracter;
+	Definir condicion como logico;
+	
+	condicion = falso;
+	
+	Mientras condicion = falso Hacer
+		Limpiar pantalla;
+	Escribir "Bienvenido al login. Presione cualquier tecla para continuar.";
+	Esperar Tecla;
+	
+	Escribir "Ingrese su correo electrónico: ";
+	Leer correo;
+	Escribir "Ingrese su contraseña: ";
+	Leer contrasena;
+	
+	Si correo = "pedro@gmail.com" y contrasena = "admin123" Entonces
+		Escribir "Ha ingresado al sistema con éxito.";
+		condicion = verdadero;
+	SiNo
+		Si correo = "juan@hotmail.com" y contrasena = "admin123" Entonces
+			Escribir "Ha ingresado al sistema con éxito.";
+			condicion = verdadero;
+		SiNo
+			Escribir "Error en el correo/ contraseña. Intentar nuevamente.";
+			Esperar tecla;
+			condicion = falso;
+			
+		FinSi
+	FinSi
+FinMientras
+
+	
+	
+FinProceso
+
+*
+
+--------------------------------------------------------------------------
+
+Ejercicio 8: Calcular el tiempo que le queda a un joven para su próximo cumpleaños
+Descripción: Solicita el día y el mes de nacimiento de una persona y calcula cuántos días
+faltan para su próximo cumpleaños, considerando que la fecha actual es el 22 de marzo de
+2025.
+
+
 
 
 
