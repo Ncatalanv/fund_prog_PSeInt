@@ -207,9 +207,9 @@ Proceso ej5_edad_anos_meses_dias
 	FinSi
 	
 	
-	// 26 - 20
+	// 26 - 20 
 	Si dia_actual > dia Entonces
-		edad_dia = dia_actual - dia;
+		edad_dia = dia_actual - dia; ((31 - dia_actual) + dia)
 		edad_mes = edad_mes + 1;
 	SiNo
 		edad_dia = dia - dia_actual;
