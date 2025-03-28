@@ -167,6 +167,60 @@ Descripción: Solicita la fecha de nacimiento de una persona (día, mes, año) y
 edad en años, meses y días.
 
 *
+Proceso ej5_edad_anos_meses_dias
+	
+	Definir ano, mes, dia, ano_hoy, edad_ano, edad_mes, edad_dia como entero;
+	Definir ano_actual, mes_actual, dia_actual Como Entero;
+	
+	
+	//Pedir fecha de nacimiento
+	Escribir "Este programa calculará tu edad en años, meses y días.";
+	Escribir "Ingresa tu año de nacimiento: ";
+	Leer ano;
+	Escribir "Ingresa tu mes de nacimiento (1 - 12): ";
+	Leer mes;
+	Escribir "Ingresa tu día de nacimiento (1 - 31): ";
+	Leer dia;
+	
+	//Pedir fecha actual
+	Escribir "Ingrese año actual: ";
+	Leer ano_actual;
+	Escribir "Ingrese mes actual (1 - 12): ";
+	Leer mes_actual;
+	Escribir "Ingrese dia actual (1 - 31): ";
+	Leer dia_actual;
+	
+	edad_ano = ano_actual - ano;
+	
+// 3 - 1
+	Si mes_actual > mes Entonces
+		edad_ano = edad_ano;
+		edad_mes = (mes_actual - mes) - 1;
+	Sino 
+		Si mes_actual = mes y dia_actual > dia Entonces
+			edad_ano = edad_ano;
+			edad_mes = 11;
+		SiNo
+			edad_ano = edad_ano - 1;
+			edad_mes = 12 - (mes - mes_actual);
+		FinSi
+	FinSi
+	
+	
+	// 26 - 20
+	Si dia_actual > dia Entonces
+		edad_dia = dia_actual - dia;
+		edad_mes = edad_mes + 1;
+	SiNo
+		edad_dia = dia - dia_actual;
+	FinSi
+	
+	
+	
+	Escribir "Tienes ", edad_ano, " años", ", ", edad_mes, " meses", " y ",edad_dia, " dias.";
+	
+	
+FinProceso
 
 *
 
@@ -284,6 +338,81 @@ Descripción: Solicita el día y el mes de nacimiento de una persona y calcula c
 faltan para su próximo cumpleaños, considerando que la fecha actual es el 22 de marzo de
 2025.
 
+*
+
+Proceso ej8_tiempo_cumple_dias
+	
+	Definir dia, mes, dia_actual, mes_actual, ano_actual, mes_cumple, dia_cumple, dias_total Como Entero;
+	
+	Escribir "Este programa calculará cuantos días quedan para tu cumpleaños. (fecha 22/03/25)";
+	Escribir "Ingrese día de nacimiento (0 - 31): ";
+	Leer dia;
+	Escribir "Ingrese mes de nacimiento (1 - 12): ";
+	Leer mes;
+	
+	//Fecha actual 22 marzo 2025
+	
+	dia_actual = 22;
+	mes_actual = 3;
+	ano_actual = 2025;
+	
+	Si mes > mes_actual Entonces
+		mes_cumple = mes - mes_actual;
+	SiNo 
+		Si mes = mes_actual Entonces 
+			mes_cumple = 0;
+		SiNo
+			Si mes < mes_actual Entonces
+				mes_cumple = 12 - (mes_actual - mes);
+			FinSi
+		FinSi
+	FinSi
+	
+	Si dia > dia_actual Entonces
+		dia_cumple = (dia - dia_actual);
+		mes_cumple = mes_cumple - 1;
+	SiNo
+		Si dia = dia_actual Entonces
+			dia_cumple = 0;
+			mes_cumple = mes_cumple -1;
+		SiNo
+			Si dia < dia_actual Entonces
+				dia_cumple = 31 - (dia_actual - dia);
+				mes_cumple = mes_cumple -1;
+				
+			FinSi
+			
+		FinSi
+	FinSi
+	
+	dias_total = (mes_cumple*31)+dia_cumple;
+	
+	
+	Escribir "Faltan ",dias_total, " días para tu cumpleaños!";
+	
+	// 27
+	
+	
+	
+	
+FinProceso
+
+
+*
+
+---------------------------------------------------------------------------------------------------------------
+
+Ejercicio 9: Calcular cuántas veces un joven puede ir al cine con su presupuesto
+Descripción: Solicita el presupuesto de un joven para ir al cine y el precio de la entrada.
+Calcula cuántas veces puede ir al cine con ese presupuesto.
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Ejercicio 10: Calcular el tiempo total de una serie de Netflix
+Descripción: Solicita el número de episodios de una serie de Netflix y la duración de cada
+episodio (en minutos). Luego, calcula el tiempo total que se tardará en ver toda la serie.
 
 
 
