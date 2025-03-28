@@ -1,0 +1,140 @@
+Proceso menu_segun
+	definir opc Como Entero;
+	definir control_menu como logico;
+	
+	opc = 0;
+	control_menu = verdadero;
+	
+	Mientras control_menu == verdadero Hacer
+		Escribir "Seleccione una opción: ";
+		Escribir "[1] - Saludar";
+		Escribir "[2] - Hablar";
+		Escribir "[3] - Salir";
+		Leer opc;
+		
+		Segun opc Hacer
+			1:
+				Escribir "opción 1";
+				Esperar 1 segundo;
+				Limpiar Pantalla;
+			2:
+				Escribir "opción 2";
+				Esperar 1 segundo;
+				Limpiar Pantalla;
+			3:
+				Escribir "Saliendo del sistema";
+				Esperar 1 segundos;
+				control_menu = falso;
+			De Otro Modo:
+				Escribir "opción no válida";
+				Esperar 1 segundo;
+				Limpiar Pantalla;
+		FinSegun
+		
+	FinMientras
+	
+FinProceso
+
+----------------------------------------------------------------------------------------------
+
+MENU DE SUMA Y RESTA
+
+
+Proceso menu_si
+	Definir num1, num2, suma, resta, opc Como Entero;
+	Definir control_menu Como Logico;
+	
+	opc=0;
+	control_menu = Verdadero;
+	
+	Mientras control_menu = verdadero Hacer
+		Escribir "********** Menú ***********";
+		Escribir "[1] - Sumar";
+		Escribir "[2] - Restar";
+		Escribir "[3] - Salir";
+		Escribir "Ingrese una opción: ";
+		Leer opc;
+		
+		Si opc == 1 Entonces
+			Limpiar Pantalla;
+			
+			Escribir " --- SUMA --- ";
+			Escribir "Ingrese número 1: ";
+			Leer num1;
+			Escribir "Ingrese número 2: ";
+			Leer num2;
+			
+			suma = num1 + num2;
+			
+			Escribir "La suma de ", num1, " más ", num2, " es: ", suma;
+			Escribir "Presione una tecla para continuar.";
+			Esperar Tecla;
+			Limpiar Pantalla;
+		SiNo
+			Si opc == 2 Entonces
+				Limpiar Pantalla;
+				
+				Escribir " --- RESTA --- ";
+				Escribir "Ingrese número 1: ";
+				Leer num1;
+				Escribir "Ingrese número 2: ";
+				Leer num2;
+				
+				resta = num1 - num2;
+				
+				Escribir "La resta de ", num1, " menos ", num2, " es: ", resta;
+				Escribir "Presione una tecla para continuar.";
+				Esperar Tecla;
+				Limpiar Pantalla;
+			SiNo
+				Si opc == 3 Entonces
+					Limpiar Pantalla;
+					Escribir "Saliendo del sistema.";
+					Esperar 2 segundos;
+					control_menu = falso;
+				SiNo 
+					Limpiar Pantalla;
+					Escribir "Opción no válida.";
+					Esperar 1 segundo;
+					Limpiar Pantalla;
+				FinSi
+			FinSi
+		FinSi
+		
+
+		
+		
+	FinMientras
+	
+FinProceso
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
