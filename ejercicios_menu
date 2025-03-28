@@ -1,0 +1,48 @@
+Ejercicio 1: Contar Pares e Impares
+Descripción: Escribe un programa que lea 10 números y cuente cuántos de ellos son pares
+y cuántos son impares.
+
+
+--------------------------------------------------------------------------------------------------------
+Ejercicio 2: Números en Rango
+Descripción: Escribe un programa que lea un número y luego muestre todos los números
+del 1 al número ingresado.
+
+--------------------------------------------------------------------------------------------------------
+
+Ejercicio 3: Suma de Números Positivos
+Descripción: Escribe un programa que lea números y calcule la suma de los números
+positivos. El ciclo termina cuando se ingresa un número negativo.
+
+--------------------------------------------------------------------------------------------------------
+
+Ejercicio 4: "Adivina el número con pistas"
+Descripción: En este ejercicio, el programa le da al usuario pistas si su número está por
+encima o por debajo del número secreto.
+
+--------------------------------------------------------------------------------------------------------
+
+Ejercicio 5: “Menú interactivo”
+Descripción: Desarrolla un algoritmo que implemente un menú interactivo con diversas
+opciones. La primera opción debe permitir al usuario calcular el área de un triángulo. La
+segunda opción debe calcular el perímetro de un rectángulo. La tercera opción debe
+permitir calcular el área de un círculo. Finalmente, la última opción debe permitir al
+usuario salir del programa.
+
+--------------------------------------------------------------------------------------------------------
+
+Ejercicio 6: “Operaciones básicas”
+Descripción: Desarrolla un algoritmo que implemente un menú interactivo con diversas
+opciones. La primera opción debe permitir al usuario calcular la suma de dos números. La
+segunda opción debe calcular la resta de dos números. La tercera opción debe calcular el
+promedio de dos números. La última opción debe calcular el cociente de dos números
+(división). Finalmente, la última opción debe permitir al usuario salir del programa.
+
+
+
+
+
+
+
+
+
