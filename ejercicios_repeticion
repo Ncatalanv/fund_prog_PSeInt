@@ -179,7 +179,7 @@ Proceso ej5_edad_anos_meses_dias
 	Leer ano;
 	Escribir "Ingresa tu mes de nacimiento (1 - 12): ";
 	Leer mes;
-	Escribir "Ingresa tu día de nacimiento (1 - 31): ";
+	Escribir "Ingresa tu día de nacimiento (1 - 30): ";
 	Leer dia;
 	
 	//Pedir fecha actual
@@ -187,12 +187,12 @@ Proceso ej5_edad_anos_meses_dias
 	Leer ano_actual;
 	Escribir "Ingrese mes actual (1 - 12): ";
 	Leer mes_actual;
-	Escribir "Ingrese dia actual (1 - 31): ";
+	Escribir "Ingrese dia actual (1 - 30): ";
 	Leer dia_actual;
 	
 	edad_ano = ano_actual - ano;
 	
-// 3 - 1
+// Sacar años y meses que tengo.
 	Si mes_actual > mes Entonces
 		edad_ano = edad_ano;
 		edad_mes = (mes_actual - mes) - 1;
@@ -201,27 +201,45 @@ Proceso ej5_edad_anos_meses_dias
 			edad_ano = edad_ano;
 			edad_mes = 11;
 		SiNo
+			Si mes_actual < mes Entonces
 			edad_ano = edad_ano - 1;
 			edad_mes = 12 - (mes - mes_actual);
+			FinSi
 		FinSi
 	FinSi
 	
 	
-	// 26 - 20 
+// Sacar los días que tengo.
 	Si dia_actual > dia Entonces
-		edad_dia = dia_actual - dia; ((31 - dia_actual) + dia)
-		edad_mes = edad_mes + 1;
+		edad_dia =(30 - dia)+dia_actual;
+		edad_mes = edad_mes;
 	SiNo
-		edad_dia = dia - dia_actual;
+			Si dia_actual = dia Entonces
+				edad_dia = 0;
+			SiNo
+				// 2 - 29
+				Si dia_actual < dia Entonces
+					edad_dia = (30 - dia) + dia_actual;
+				FinSi
+			
+			FinSi
 	FinSi
 	
+	
+	// Residuo para pasar los días a meses.
+	
+	Si edad_dia >= 30 Entonces
+		edad_dia = edad_dia%30;
+		Si edad_dia > 0 Entonces
+			edad_mes = edad_mes + 1;
+		FinSi
+	FinSi
 	
 	
 	Escribir "Tienes ", edad_ano, " años", ", ", edad_mes, " meses", " y ",edad_dia, " dias.";
 	
 	
 FinProceso
-
 *
 
 --------------------------------------------------------------------------------------------------------
@@ -340,59 +358,82 @@ faltan para su próximo cumpleaños, considerando que la fecha actual es el 22 d
 
 *
 
-Proceso ej8_tiempo_cumple_dias
+Proceso ej5_edad_anos_meses_dias
 	
-	Definir dia, mes, dia_actual, mes_actual, ano_actual, mes_cumple, dia_cumple, dias_total Como Entero;
+	Definir ano, mes, dia, ano_hoy, edad_ano, edad_mes, edad_dia como entero;
+	Definir ano_actual, mes_actual, dia_actual Como Entero;
 	
-	Escribir "Este programa calculará cuantos días quedan para tu cumpleaños. (fecha 22/03/25)";
-	Escribir "Ingrese día de nacimiento (0 - 31): ";
-	Leer dia;
-	Escribir "Ingrese mes de nacimiento (1 - 12): ";
+	edad_dia=0;
+	
+	
+	//Pedir fecha de nacimiento
+	Escribir "Este programa calculará tu edad en años, meses y días.";
+	Escribir "Ingresa tu año de nacimiento: ";
+	Leer ano;
+	Escribir "Ingresa tu mes de nacimiento (1 - 12): ";
 	Leer mes;
+	Escribir "Ingresa tu día de nacimiento (1 - 30): ";
+	Leer dia;
 	
-	//Fecha actual 22 marzo 2025
+	//Pedir fecha actual
+	Escribir "Ingrese año actual: ";
+	Leer ano_actual;
+	Escribir "Ingrese mes actual (1 - 12): ";
+	Leer mes_actual;
+	Escribir "Ingrese dia actual (1 - 30): ";
+	Leer dia_actual;
 	
-	dia_actual = 22;
-	mes_actual = 3;
-	ano_actual = 2025;
+	edad_ano = ano_actual - ano;
 	
-	Si mes > mes_actual Entonces
-		mes_cumple = mes - mes_actual;
-	SiNo 
-		Si mes = mes_actual Entonces 
-			mes_cumple = 0;
+// Sacar años y meses que tengo.
+	Si mes_actual > mes Entonces
+		edad_ano = edad_ano;
+		edad_mes = (mes_actual - mes) -1;
+	Sino 
+		Si mes_actual = mes y dia_actual > dia Entonces
+			edad_ano = edad_ano;
+			edad_mes = 11;
 		SiNo
-			Si mes < mes_actual Entonces
-				mes_cumple = 12 - (mes_actual - mes);
+			Si mes_actual < mes Entonces
+			edad_ano = edad_ano - 1;
+			edad_mes = 12 - (mes - mes_actual);
 			FinSi
 		FinSi
 	FinSi
 	
-	Si dia > dia_actual Entonces
-		dia_cumple = (dia - dia_actual);
-		mes_cumple = mes_cumple - 1;
+	
+// Sacar los días que tengo.
+	Si dia_actual > dia Entonces
+		edad_dia = (30-dia)+ dia_actual;
 	SiNo
-		Si dia = dia_actual Entonces
-			dia_cumple = 0;
-			mes_cumple = mes_cumple -1;
+		Si dia_actual = dia y mes_actual < mes Entonces
+			edad_dia = 0;
 		SiNo
-			Si dia < dia_actual Entonces
-				dia_cumple = 31 - (dia_actual - dia);
-				mes_cumple = mes_cumple -1;
-				
+			Si dia_actual = dia y mes_actual > mes Entonces
+				edad_mes = edad_mes+1;
+			SiNo 
+				Si mes_actual < mes Entonces
+					edad_mes = edad_mes;
+				SiNo
+					Si dia_actual < dia Entonces
+							edad_dia = (30-dia)+dia_actual;
+					FinSi
+				FinSi
 			FinSi
-			
 		FinSi
 	FinSi
 	
-	dias_total = (mes_cumple*31)+dia_cumple;
+	// Residuo para pasar los días a meses.
+	
+	Si edad_dia > 30 Entonces
+		edad_dia = edad_dia%30;
+		Si edad_dia < 30 Entonces
+			edad_mes = edad_mes + 1;
+		FinSi
+	FinSi
 	
 	
-	Escribir "Faltan ",dias_total, " días para tu cumpleaños!";
-	
-	// 27
-	
-	
+	Escribir "Tienes ", edad_ano, " años", ", ", edad_mes, " meses", " y ",edad_dia, " dias.";
 	
 	
 FinProceso
@@ -406,13 +447,80 @@ Ejercicio 9: Calcular cuántas veces un joven puede ir al cine con su presupuest
 Descripción: Solicita el presupuesto de un joven para ir al cine y el precio de la entrada.
 Calcula cuántas veces puede ir al cine con ese presupuesto.
 
+*
 
+Proceso ej9_cine_presupuesto
+	
+	Definir presupuesto, precio_entrada, residuo, veces Como Entero;
+	
+	presupuesto=0;
+	precio_entrada=0;
+	residuo=0;
+	veces=0;
+	
+	Escribir "Este ´programa calculará cuantas veces puedes ir al cine dependiendo de tu presupuesto.";
+	
+	Escribir "Ingrese su presupuesto: ";
+	Leer presupuesto;
+	Escribir "Ingrese precio de la entrada: ";
+	Leer precio_entrada;
+	
+	residuo = presupuesto%precio_entrada;
+	
+	Si residuo = 0 Entonces
+		veces = presupuesto/precio_entrada;
+		Escribir "Puedes ir al cine ", veces, " veces y no te sobra dinero.";
+	SiNo
+		Si residuo = presupuesto Entonces
+			Escribir "No te alcanza para ir al cine.";
+		SiNo
+			veces = (presupuesto-residuo)/precio_entrada;
+			Escribir "Puedes ir al cine ", veces, " y te sobran ", residuo, " pesos.";
+		FinSi
+	FinSi
+	
+FinProceso
+
+*
 
 ------------------------------------------------------------------------------------------------------------------------------
 
 Ejercicio 10: Calcular el tiempo total de una serie de Netflix
 Descripción: Solicita el número de episodios de una serie de Netflix y la duración de cada
 episodio (en minutos). Luego, calcula el tiempo total que se tardará en ver toda la serie.
+
+
+*
+Proceso ej10_netflix
+	
+	Definir episodios, duracion_ep, contador, suma Como Entero;
+	
+	episodios=0;
+	duracion_ep=0;
+	contador=0;
+	suma=0;
+	
+	Escribir "Este programa calculará el tiempo total de una serie de Netflix.";
+	
+	Escribir "Ingrese número de episodios: ";
+	Leer episodios;
+	Limpiar Pantalla;
+	
+	Para contador<- 1 Hasta episodios Con Paso 1 Hacer
+		Escribir "Duración del capitulo ", contador, ": ";
+		Leer duracion_ep;
+		suma = suma + duracion_ep;
+		Limpiar Pantalla;
+		
+	FinPara
+	
+	Escribir "Te demorarás ", suma, " minutos en ver la serie cumpleta.";
+	
+FinProceso
+
+*
+
+
 
 
 
