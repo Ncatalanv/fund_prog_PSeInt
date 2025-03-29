@@ -2,6 +2,39 @@ Ejercicio 1: Contar Pares e Impares
 Descripción: Escribe un programa que lea 10 números y cuente cuántos de ellos son pares
 y cuántos son impares.
 
+*
+
+Proceso segun_ej1
+	
+	Definir inicio, num, residuo, par, impar, suma Como Entero;
+	
+	par=0;
+	impar=0;
+	suma=0;
+	
+	Escribir "Este programa contará los números Pares e Impares.";
+	
+	Para inicio <- 1 hasta 10 con paso 1 Hacer
+		Escribir "Ingrese número ", inicio, " :";
+		Leer num;
+		
+		residuo = num%2;
+		
+		Si residuo = 0 Entonces
+			par = par + 1;
+		SiNo
+			Si residuo = 1 Entonces
+				impar = impar + 1;
+			FinSi
+		FinSi
+		
+	FinPara
+	
+	Escribir "En total tienes ", par, " números pares y ", impar, " números impares.";
+	
+FinProceso
+
+*
 
 --------------------------------------------------------------------------------------------------------
 Ejercicio 2: Números en Rango
