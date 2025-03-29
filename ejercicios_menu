@@ -41,12 +41,66 @@ Ejercicio 2: Números en Rango
 Descripción: Escribe un programa que lea un número y luego muestre todos los números
 del 1 al número ingresado.
 
+*
+
+Proceso segun_ej2
+	
+	Definir num, inicio Como Entero;
+	
+	num=0;
+	
+	Escribir "Este programa contará del 1 al número ingresado.";
+	Escribir "Ingrese un número máximo: ";
+	Leer num;
+	
+	Para inicio<- 1 hasta num hacer 
+		Escribir inicio;
+	FinPara
+	
+FinProceso
+
+*
 --------------------------------------------------------------------------------------------------------
 
 Ejercicio 3: Suma de Números Positivos
 Descripción: Escribe un programa que lea números y calcule la suma de los números
 positivos. El ciclo termina cuando se ingresa un número negativo.
 
+*
+
+Proceso segun_ej3
+	
+	Definir condicion Como Logico;
+	definir num, suma Como Entero;
+	
+	condicion = verdadero;
+	num=0;
+	suma=0;
+	
+	Escribir "Este programa sumará los números positivos.";
+	
+	Mientras condicion == verdadero Hacer
+		Escribir "Ingresa un número: ";
+		Leer num;
+		
+		Si num >= 0 Entonces
+			suma = suma + num;
+			Limpiar Pantalla;
+			Escribir "La suma total de los números es: ",suma;
+		Sino
+			Si num < 0 Entonces
+			Escribir "Has ingresado un número negativo.";
+			condicion = falso;
+			FinSi
+		FinSi
+		
+		
+		
+	FinMientras
+		
+FinProceso
+
+*
 --------------------------------------------------------------------------------------------------------
 
 Ejercicio 4: "Adivina el número con pistas"
