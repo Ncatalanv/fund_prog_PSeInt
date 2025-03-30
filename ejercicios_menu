@@ -256,8 +256,123 @@ segunda opción debe calcular la resta de dos números. La tercera opción debe 
 promedio de dos números. La última opción debe calcular el cociente de dos números
 (división). Finalmente, la última opción debe permitir al usuario salir del programa.
 
+*
+Proceso segun_ej6
+	
+	Definir control_menu Como Logico;
+	Definir opcion Como Entero;
+	Definir sum1, sum2, sum_total, rest1, rest2, rest_total, prom1, prom2, prom_total, div1, div2, div_total Como Real;
+	
+	control_menu = verdadero;
+	
+	Mientras control_menu == verdadero Hacer
+		Escribir "Seleccione una opción: ";
+		Escribir "[1] - Suma.";
+		Escribir "[2] - Resta.";
+		Escribir "[3] - Promedio.";
+		Escribir "[4] - División.";
+		Escribir "[5] - Salir del programa.";
+		Leer opcion;
+		
+		Si opcion == 1 Entonces
+			Limpiar Pantalla;
+			Escribir " --- Suma --- ";
+			Escribir "Ingrese primer número: ";
+			Leer sum1;
+			Escribir "Ingrese segundo número: ";
+			Leer sum2;
+			
+			sum_total = sum1+sum2;
+			
+			Escribir "La suma de los dos números es: ", sum_total;
+			Escribir "Presione una tecla para continuar.";
+			Esperar Tecla;
+			Limpiar Pantalla;
+			
+		SiNo
+			Si opcion == 2 Entonces
+				Limpiar Pantalla;
+				Escribir " --- Resta --- ";
+				Escribir "Ingrese primer número: ";
+				Leer rest1;
+				Escribir "Ingrese segundo número: ";
+				Leer rest2;
+				
+				rest_total = rest1 - rest2;
+				
+				Escribir "La resta de los dos números es: ", rest_total;
+				Escribir "Presione una tecla para continuar.";
+				Esperar Tecla;
+				Limpiar Pantalla;
+				
+			SiNo
+				Si opcion == 3 Entonces
+					Limpiar Pantalla;
+					Escribir " --- Promedio --- ";
+					Escribir "Ingrese primer número: ";
+					Leer prom1;
+					Escribir "Ingrese segundo número: ";
+					Leer prom2;
+					
+					prom_total = (prom1+prom2)/2;
+					
+					Escribir "El promedio entre los dos números es: ", prom_total;
+					Escribir "Presione una tecla para continuar.";
+					Esperar Tecla;
+					Limpiar Pantalla;
+					
+				SiNo
+					Si opcion == 4 Entonces
+						Limpiar Pantalla;
+						Escribir " --- División --- ";
+						Escribir "Ingrese primer número: ";
+						Leer div1;
+						Escribir "Ingrese segundo número: ";
+						Leer div2;
+						
+						div_total = div1/div2;
+						
+						Escribir "La división entre los dos números es: ", div_total;
+						Escribir "Presione una tecla para continuar.";
+						Esperar Tecla;
+						Limpiar Pantalla;
+						
+					SiNo
+						Si opcion == 5 Entonces
+							Limpiar Pantalla;
+							Escribir "Saliendo del programa.";
+							Esperar 1 segundo;
+							Limpiar Pantalla;
+							Escribir "Saliendo del programa..";
+							Esperar 1 segundo;
+							Limpiar Pantalla;
+							Escribir "Saliendo del programa...";
+							Esperar 1 segundo;
+							Limpiar Pantalla;
+							Escribir "Saliendo del programa....";
+							Esperar 1 segundo;
+							control_menu = falso;
+							
+						SiNo
+							Limpiar Pantalla;
+							Escribir "Opción no válida.";
+							Esperar 2 segundo;
+							Limpiar Pantalla;
+						FinSi
+					FinSi
+				FinSi
+				
+			FinSi
+		FinSi
+		
+		
+		
+	FinMientras
+	
+	
+FinProceso
 
-
+*
 
 
 
