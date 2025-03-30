@@ -107,6 +107,51 @@ Ejercicio 4: "Adivina el número con pistas"
 Descripción: En este ejercicio, el programa le da al usuario pistas si su número está por
 encima o por debajo del número secreto.
 
+*
+Proceso segun_ej4
+	
+	Definir num_secreto, num Como Entero;
+	Definir condicion como logico;
+	
+	num=0;
+	num_secreto=0;
+	condicion = verdadero;
+	
+	Escribir "Este programa te dará pistas para encontrar el número secreto.";
+	
+	num_secreto = 777;
+	
+	Mientras condicion == verdadero Hacer
+		
+	Escribir "Intenta adivinar el número: ";
+	Leer num;
+	Si num > num_secreto Entonces
+		Limpiar Pantalla;
+		Escribir "Encima del número...";
+		Esperar 1 segundo;
+		Limpiar Pantalla;
+	SiNo
+		Si num < num_secreto Entonces
+			Limpiar Pantalla;
+			Escribir "Debajo del número...";
+			Esperar 1 segundo;
+			Limpiar Pantalla;
+		SiNo
+			Si num = num_secreto Entonces
+				Escribir "¡Le acertaste!. El número secreto es: ", num_secreto;
+				condicion = falso;
+			FinSi
+		FinSi
+	FinSi
+	
+	FinMientras
+
+
+	
+FinProceso
+
+*
+
 --------------------------------------------------------------------------------------------------------
 
 Ejercicio 5: “Menú interactivo”
@@ -115,6 +160,92 @@ opciones. La primera opción debe permitir al usuario calcular el área de un tr
 segunda opción debe calcular el perímetro de un rectángulo. La tercera opción debe
 permitir calcular el área de un círculo. Finalmente, la última opción debe permitir al
 usuario salir del programa.
+
+*
+Proceso segun_ej5
+	
+	Definir control_menu Como Logico;
+	Definir opcion Como Entero;
+	Definir base, altura, area_tr, rect1, rect2, per_rect, rad_cir, area_cir Como Real;
+	
+	control_menu = verdadero;
+	
+	Mientras control_menu == verdadero Hacer
+		Escribir "Seleccione una opción: ";
+		Escribir "[1] - Calcular área triángulo.";
+		Escribir "[2] - Calcular perímetro rectángulo.";
+		Escribir "[3] - Calcular área círculo.";
+		Escribir "[4] - Salir del programa.";
+		Leer opcion;
+		
+		Si opcion == 1 Entonces
+			Limpiar Pantalla;
+			Escribir " --- Área triángulo --- ";
+			Escribir "Ingrese base triángulo: ";
+			Leer base;
+			Escribir "Ingrese altura triángulo: ";
+			Leer altura;
+			
+			area_tr = (base*altura)/2;
+			
+			Escribir "El área del triángulo es: ", area_tr;
+			Escribir "Presione una tecla para continuar.";
+			Esperar Tecla;
+			Limpiar Pantalla;
+		SiNo
+			Si opcion == 2 Entonces
+				Limpiar Pantalla;
+				Escribir " --- Perímetro rectángulo --- ";
+				Escribir "Ingrese lado 1: ";
+				Leer rect1;
+				Escribir "Ingrese lado 2: ";
+				Leer rect2;
+				
+				per_rect = (2*rect1)+(2*rect2);
+				
+				Escribir "El perímetro del rectángulo es: ", per_rect;
+				Escribir "Presione una tecla para continuar.";
+				Esperar Tecla;
+				Limpiar Pantalla;
+			SiNo 
+				Si opcion == 3 Entonces
+					Limpiar Pantalla;
+					Escribir " --- Área círculo --- ";
+					Escribir "Ingrese radio del circulo: ";
+					Leer rad_cir;
+					
+					area_cir = PI*(rad_cir^2);
+					
+					Escribir "El área del círculo es: ", area_cir;
+					Escribir "Presione una tecla para continuar.";
+					Esperar Tecla;
+					Limpiar Pantalla;
+				SiNo
+					Si opcion == 4 Entonces
+						Limpiar Pantalla;
+						Escribir "Saliendo del programa.";
+						Esperar 1 segundo;
+						Limpiar Pantalla;
+						Escribir "Saliendo del programa..";
+						Esperar 1 segundo;
+						Limpiar Pantalla;
+						Escribir "Saliendo del programa...";
+						Esperar 1 segundo;
+						Limpiar Pantalla;
+						Escribir "Saliendo del programa....";
+						Esperar 1 segundo;
+						control_menu = falso;
+					FinSi
+				FinSi
+			FinSi
+		FinSi
+		
+	FinMientras
+	
+	
+FinProceso
+
+*
 
 --------------------------------------------------------------------------------------------------------
 
