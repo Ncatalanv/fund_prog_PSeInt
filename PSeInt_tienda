@@ -1,0 +1,144 @@
+Proceso tienda
+	
+	Definir opc, cod_prod, prec_prod, cant_prod, cod_buscar, cant_vender Como Entero;
+	Definir control_menu Como Logico;
+	Definir nom_prod, elim_prod Como Caracter;
+	
+	opc = 0;
+	control_menu = verdadero;
+	cod_prod=0;
+	prec_prod=0;
+	cant_prod=0;
+	nom_prod= " ";
+	cant_vender=0;
+	
+	Mientras control_menu == verdadero Hacer
+		Limpiar Pantalla;
+		Escribir " --- ASIM --- ";
+		Escribir "Seleccione una opción: ";
+		Escribir "[1] - Registrar producto.";
+		Escribir "[2] - Mostrar productos.";
+		Escribir "[3] - Editar productos.";
+		Escribir "[4] - Eliminar productos.";
+		Escribir "[5] - Vender producto.";
+		Escribir "[6] - Salir del programa.";
+		Leer opc;
+		
+		Segun opc Hacer
+			1:
+				Limpiar Pantalla;
+				Escribir " --- Registro de producto --- ";
+				Escribir "Ingrese código del producto: ";
+				Leer cod_prod;
+				Escribir "Ingrese nombre del producto: ";
+				Leer nom_prod;
+				Escribir "Ingrese precio del producto: ";
+				Leer prec_prod;
+				Escribir "Ingrese cantidad del producto: ";
+				Leer cant_prod;
+				Escribir "Producto registrado exitosamente - Presione una tecla para continuar.";
+				Esperar Tecla;
+			2:
+				Limpiar Pantalla;
+				Escribir " --- Catálogo --- ";
+				Escribir "|  ", "Código", "  |  ", "Nombre", "  |  ", "Precio", "  |  ", "Cantidad", "  |";
+				Escribir "|  ", cod_prod, "  |  ", nom_prod, "  |  ", prec_prod, "  |  ", cant_prod, "  |";
+				Esperar Tecla;
+			3:
+				Limpiar Pantalla;
+				Escribir " --- Editar producto --- ";
+				Escribir "Ingrese el código del producto: ";
+				Leer cod_buscar;
+				
+				si cod_buscar == cod_prod Entonces
+					Escribir "|  ", cod_prod, "  |  ", nom_prod, "  |  ", prec_prod, "  |  ", cant_prod, "  |";
+					Escribir "Ingrese nombre del producto: ";
+					Leer nom_prod;
+					Escribir "Ingrese precio del producto: ";
+					Leer prec_prod;
+					Escribir "Ingrese cantidad del producto: ";
+					Leer cant_prod;
+					Escribir "Producto editado exitosamente.";
+					Esperar 2 segundos;
+				SiNo 
+					Escribir "Producto no encontrado.";
+					Esperar 2 segundos;
+				FinSi
+			4:
+				Limpiar Pantalla;
+				Escribir " --- Eliminar producto --- ";
+				Escribir "Ingrese código del producto a eliminar: ";
+				Leer cod_buscar;
+				
+				
+				Si cod_buscar == cod_prod Entonces
+					Escribir "|  ", cod_prod, "  |  ", nom_prod, "  |  ", prec_prod, "  |  ", cant_prod, "  |";
+					Escribir "¿Desea eliminar este producto? Si/ No.";
+					Leer elim_prod;
+					
+					Si elim_prod == "si" o elim_prod == "Si" o elim_prod == "sI" o elim_prod == "SI" Entonces 
+						cod_prod=0;
+						prec_prod=0;
+						cant_prod=0;
+						nom_prod= " ";
+						Escribir "Producto eliminado exitosamente.";
+						Esperar 2 segundos;
+						
+					SiNo
+						Escribir "Volviendo a menú de inicio.";
+						Esperar 2 segundos;
+					FinSi
+				SiNo
+					Escribir "Producto no encontrado.";
+					Esperar 2 segundos;
+				FinSi
+				
+			5:
+				Escribir " --- Venta de productos --- ";
+				Escribir "Ingrese el código del producto a vender: ";
+				Leer cod_buscar;
+				
+				Si cod_buscar == cod_prod Entonces
+					Escribir "Ingrese cantidad a vender: ";
+					Leer cant_vender;
+					Si cant_prod >= cant_vender Entonces
+						cant_prod = cant_prod - cant_vender;
+						
+						//BOLETA
+						
+						Escribir "--- BOLETA --- ";
+						Escribir "Fecha: ", "31 - 03- 2025";
+						Escribir "Producto: ", nom_prod;
+						Escribir "Cantidad: ", cant_vender;
+						Escribir "Total a pagar: ", cant_vender * prec_prod;
+						Esperar Tecla;;
+					SiNo
+						Escribir "No hay stock del producto.";
+					FinSi
+				SiNo
+					Escribir "El producto no existe.";
+				FinSi
+			6:
+				Limpiar Pantalla;
+				Escribir "Saliendo del programa.";
+				Esperar 1 segundo;
+				Limpiar Pantalla;
+				Escribir "Saliendo del programa..";
+				Esperar 1 segundo;
+				Limpiar Pantalla;
+				Escribir "Saliendo del programa...";
+				Esperar 1 segundo;
+				Limpiar Pantalla;
+				Escribir "Saliendo del programa....";
+				Esperar 1 segundo;
+				control_menu = falso;
+			De Otro Modo:
+				Escribir "Opción no válida. Vuelva a intentar.";
+				Esperar 2 segundos;
+		FinSegun
+		
+		
+	FinMientras
+	
+	
+FinProceso
