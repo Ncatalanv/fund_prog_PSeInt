@@ -1,0 +1,70 @@
+Proceso sin_titulo
+	
+	Definir condicion Como Logico;
+	Definir opc, num1, num2, suma, resta Como Entero;
+	
+	num1=0;
+	num2=0;
+	opc=0;
+	suma=0;
+	resta=0;
+	condicion=verdadero;
+	
+	Mientras Condicion == verdadero Hacer
+		Limpiar Pantalla;
+		Escribir " --- Menú --- ";
+		Escribir "[1] - Suma ";
+		Escribir "[2] - Resta ";
+		Escribir "[3] - Salir del programa ";
+		Escribir "Ingrese una opción: ";
+		Leer opc;
+		
+		Si opc = 1 Entonces
+			Limpiar Pantalla;
+			Escribir " --- Suma --- ";
+			Escribir "Ingrese número 1: ";
+			Leer num1;
+			Escribir "Ingrese número 2: ";
+			Leer num2;
+			
+			suma = num1+num2;
+			
+			Escribir "La suma de los dos números es: ", suma;
+			Esperar 2 segundos;
+			
+		SiNo
+			Limpiar Pantalla;
+			Si opc = 2 Entonces
+				Escribir " --- Resta --- ";
+				Escribir "Ingrese número 1: ";
+				Leer num1;
+				Escribir "Ingrese número 2: ";
+				Leer num2;
+				
+				resta = num1 - num2;
+				
+				Escribir "La resta de los dos números es: ", resta;
+				Esperar 2 segundos;
+			SiNo				
+				Si opc = 3 Entonces
+					Limpiar Pantalla;
+					Escribir "Saliendo del programa.";
+					Esperar 1 segundo;
+					Limpiar Pantalla;
+					Escribir "Saliendo del programa..";
+					Esperar 1 segundo;
+					Limpiar Pantalla;
+					Escribir "Saliendo del programa...";
+					Esperar 1 segundo;
+					Limpiar Pantalla;
+					Escribir "Saliendo del programa....";
+					Esperar 1 segundo;
+					
+					condicion = falso;
+					
+				FinSi
+				
+			FinSi
+		FinSi
+	FinMientras
+FinProceso
