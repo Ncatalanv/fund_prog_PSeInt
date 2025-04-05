@@ -1,0 +1,549 @@
+                                                                                                CONVERSOR DE MONEDAS
+
+*
+Proceso PSeInt4_Conversor_Monedas
+	
+	definir opc Como Entero;
+	definir condicion Como Logico;
+	definir val, formula Como Real;
+	
+	formula=0;
+	condicion = verdadero;
+	opc=0;
+	
+	Mientras condicion == verdadero Hacer
+		
+		Limpiar Pantalla;
+		Escribir " --- CONVERSOR DE MONEDAS --- ";
+		Escribir "Ingrese una opción: ";
+		Escribir "[1] Convertir USD - EUR";
+		Escribir "[2] Convertir EUR - USD";
+		Escribir "[3] Convertir USD - GBP";
+		Escribir "[4] Convertir GBP - USD";
+		Escribir "[5] Salir del programa.";
+		Leer opc;
+		
+		Si opc == 1 Entonces
+			Limpiar Pantalla;
+			Escribir " --- USD a EUR --- ";
+			Escribir "Ingrese USD a convertir: ";
+			Leer val;
+			
+			formula = val * 0.91;
+			
+			Escribir val, " USD equivalen a: ", formula, " EUR";
+			Escribir "Presione cualquier tecla para continuar."; 
+			Esperar Tecla;
+			
+		SiNo
+			Si opc == 2 Entonces
+				Limpiar Pantalla;
+				Escribir " --- EUR a USD --- ";
+				Escribir "Ingrese EUR a convertir: ";
+				Leer val;
+				
+				formula = val * 1.10;
+				
+				Escribir val, " EUR equivalen a: ", formula, " USD";
+				Escribir "Presione cualquier tecla para continuar."; 
+				Esperar Tecla;
+				
+			SiNo
+				Si opc == 3 Entonces
+					Limpiar Pantalla;
+					Escribir " --- USD a GBP --- ";
+					Escribir "Ingrese USD a convertir: ";
+					Leer val;
+					
+					formula = val * 0.78;
+					
+					Escribir val, " USD equivalen a: ", formula, " GBP";
+					Escribir "Presione cualquier tecla para continuar."; 
+					Esperar Tecla;
+					
+				SiNo
+					Si opc == 4 Entonces
+						Limpiar Pantalla;
+						Escribir " --- GBP a USD --- ";
+						Escribir "Ingrese GBP a convertir: ";
+						Leer val;
+						
+						formula = val * 1.29;
+						
+						Escribir val, " GBP equivalen a: ", formula, " USD";
+						Escribir "Presione cualquier tecla para continuar."; 
+						Esperar Tecla;
+						
+					SiNo
+						Si opc == 5 Entonces
+							Limpiar Pantalla;
+							Escribir "Saliendo del programa.";
+							Esperar 1 segundo;
+							Limpiar Pantalla;
+							Escribir "Saliendo del programa..";
+							Esperar 1 segundo;
+							Limpiar Pantalla;
+							Escribir "Saliendo del programa...";
+							Esperar 1 segundo;
+							Limpiar Pantalla;
+							Escribir "Saliendo del programa....";
+							Esperar 1 segundo;
+							condicion = falso;
+							
+						SiNo
+							Limpiar Pantalla;
+							Escribir "Opción no válida. Vuelva a intentar.";
+							Esperar 2 segundos;
+						FinSi
+					FinSi
+				FinSi
+			FinSi
+		FinSi
+	FinMientras
+FinProceso
+*
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                CAJERO
+
+*
+Proceso PSeInt4_Cajero
+	
+	definir saldo, dep Como Real;
+	definir opc, num_cuenta Como Entero;
+	definir condicion Como Logico;
+	definir destinatario, cuenta, banco Como Caracter;
+	
+	saldo=0;
+	opc=0;
+	dep=0;
+	destinatario="";
+	cuenta="";
+	banco="";
+	num_cuenta=0;
+	condicion=verdadero;
+
+	Mientras condicion == verdadero Hacer
+		
+		Limpiar Pantalla;
+		Escribir " --- Cajero Automático --- ";
+		Escribir "Ingrese una opción: ";
+		Escribir "[1] Consultar saldo.";
+		Escribir "[2] Realizar depósito.";
+		Escribir "[3] Realizar retiro.";
+		Escribir "[4] Transferir dinero.";
+		Escribir "[5] Salir del programa.";
+		Leer opc;
+		
+		
+		Si opc == 1 Entonces
+			Limpiar Pantalla;
+			Escribir "Su saldo disponible es de: ", "$", saldo;
+			Escribir "Presione cualquier tecla para continuar";
+			Esperar Tecla;
+			
+		SiNo
+			Si opc == 2 Entonces
+				Limpiar Pantalla;
+				Escribir "Ingrese depósito: ";
+				Leer dep;
+				
+				saldo = saldo + dep;
+				
+				Escribir "Depósito realizado exitosamente.";
+				Escribir "Presione cualquier tecla para continuar";
+				Esperar Tecla;
+				
+			SiNo
+				Si opc == 3 Entonces
+					Limpiar Pantalla;
+					Escribir "Ingrese valor a retirar: ";
+					Leer dep;
+					
+					
+					Si dep <= saldo Entonces
+						saldo = saldo - dep;
+						Escribir "Retiro realizado exitosamente.";
+						Escribir "Presione cualquier tecla para continuar.";
+						Esperar Tecla;
+						
+					SiNo
+						Si dep > saldo Entonces
+							Escribir "No posee fondos necesarios para realizar este retiro.";
+							Esperar 2 segundos;
+						FinSi
+					FinSi
+					
+				SiNo
+					Si opc == 4 Entonces
+						Limpiar Pantalla;
+						Escribir "Ingrese destinatario a transferir: ";
+						Leer destinatario;
+						Escribir "Ingrese banco destino: ";
+						Leer banco;
+						Escribir "Ingrese tipo de cuenta: ";
+						Leer cuenta;
+						Escribir "Ingrese número de cuenta: ";
+						Leer num_cuenta;
+						Escribir "Ingrese cuanto desea transferir: ";
+						Leer dep;
+						
+						
+						Si dep <= saldo Entonces
+							saldo = saldo - dep;
+							Escribir "Transferencia exitosa.";
+							Escribir " --- BOLETA --- ";
+							Escribir "Fecha: 04/04/25";
+							Escribir "Pagado a: ", destinatario;
+							Escribir "Cuenta destino: ", cuenta, " - ", num_cuenta;
+							Escribir "Banco destino: ", banco;
+							Escribir "Monto: ", "$",dep;
+							
+							Escribir "Presione cualquier tecla para continuar.";
+							Esperar Tecla;
+							
+						SiNo
+							Si dep > saldo Entonces
+								Escribir "No posee fondos necesarios para realizar transferencia.";
+								Esperar 2 segundos;
+							FinSi
+						FinSi
+						
+					SiNo
+						Si opc == 5 Entonces
+							Limpiar Pantalla;
+							Escribir "Saliendo del programa.";
+							Esperar 1 segundo;
+							Limpiar Pantalla;
+							Escribir "Saliendo del programa..";
+							Esperar 1 segundo;
+							Limpiar Pantalla;
+							Escribir "Saliendo del programa...";
+							Esperar 1 segundo;
+							Limpiar Pantalla;
+							Escribir "Saliendo del programa....";
+							Esperar 1 segundo;
+							condicion = falso;
+							
+						SiNo
+							Limpiar Pantalla;
+							Escribir "Opción no válida. Vuelva a intentar.";
+							Esperar 2 segundos;
+						FinSi
+					FinSi
+				FinSi
+			FinSi
+		FinSi
+	FinMientras
+FinProceso
+*
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                CONVERSOR DE UNIDADES
+
+*
+Proceso PSeInt4_Conversor_Unid
+	
+	Definir condicion Como Logico;
+	Definir opc Como Entero;
+	Definir val, formula Como Real;
+	
+	opc=0;
+	condicion=verdadero;
+	val=0;
+	formula=0;
+	
+	Mientras condicion == verdadero Hacer
+		Limpiar Pantalla;
+		Escribir " --- Conversor de unidades --- ";
+		Escribir "Ingrese una opción: ";
+		Escribir "[1] Metros a Kilómetros.";
+		Escribir "[2] Centímetros a Metros.";
+		Escribir "[3] Celsius a Farenheit.";
+		Escribir "[4] Farenheit a Celsius.";
+		Escribir "[5] Salir del programa.";
+		Leer opc;
+		
+		Segun opc Hacer
+			1:
+				Limpiar Pantalla;
+				Escribir " --- Metros a Kilómetros --- ";
+				Escribir "Ingrese metros a convertir: ";
+				Leer val;
+				
+				formula = (val/1000);
+				
+				Escribir val, " metros equivalen a: ", formula, " kilómetros.";
+				Escribir "Presione una tecla para continuar.";
+				Esperar Tecla;
+				
+			2:
+				Limpiar Pantalla;
+				Escribir " --- Centímetros a Metros --- ";
+				Escribir "Ingrese centímetros a convertir: ";
+				Leer val;
+				
+				formula = (val/100);
+				
+				Escribir val, " centímetros equivalen a: ", formula, " metros.";
+				Escribir "Presione una tecla para continuar.";
+				Esperar Tecla;
+			3:
+				Limpiar Pantalla;
+				Escribir " --- Celsius a Farenheit --- ";
+				Escribir "Ingrese °C a convertir: ";
+				Leer val;
+				
+				formula = [val*(9/5)]+32;
+				
+				Escribir val, "°C equivalen a: ", formula, "°F.";
+				Escribir "Presione una tecla para continuar.";
+				Esperar Tecla;
+				
+			4:
+				Limpiar Pantalla;
+				Escribir " --- Farenheit a Celsius --- ";
+				Escribir "Ingrese °F a convertir: ";
+				Leer val;
+				
+				formula = [(val-32)*5]/9;
+				
+				Escribir val, "°F equivalen a: ", formula, "°C.";
+				Escribir "Presione una tecla para continuar.";
+				Esperar Tecla;
+				
+			5:
+				Limpiar Pantalla;
+				Escribir "Saliendo del programa.";
+				Esperar 1 segundo;
+				Limpiar Pantalla;
+				Escribir "Saliendo del programa..";
+				Esperar 1 segundo;
+				Limpiar Pantalla;
+				Escribir "Saliendo del programa...";
+				Esperar 1 segundo;
+				Limpiar Pantalla;
+				Escribir "Saliendo del programa....";
+				Esperar 1 segundo;
+				condicion = falso;
+				
+			De Otro Modo:
+				Limpiar Pantalla;
+				Escribir "Opción no válida. Vuelva a intentar.";
+				Esperar 2 segundos;
+		FinSegun
+	FinMientras
+FinProceso
+*
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                CALCULADORA
+
+*
+Proceso PSeInt4_calculadora
+	
+	Definir condicion Como Logico;
+	Definir opc Como Entero;
+	Definir num1, num2, formula Como Real;
+	
+	condicion=verdadero;
+	opc=0;
+	num1=0;
+	num2=0;
+	formula=0;
+	
+	Mientras condicion == verdadero Hacer
+		Limpiar Pantalla;
+		Escribir " --- Calculadora --- ";
+		Escribir "Ingrese una opción: ";
+		Escribir "[1] Sumar.";
+		Escribir "[2] Restar.";
+		Escribir "[3] Multiplicar.";
+		Escribir "[4] Dividir.";
+		Escribir "[5] Salir del programa.";
+		Leer opc;
+		
+		Si opc == 1 Entonces
+			Limpiar Pantalla;
+			Escribir " --- Suma --- ";
+			Escribir "Ingrese primer número: ";
+			Leer num1;
+			Escribir "Ingrese segundo número: ";
+			Leer num2;
+			
+			formula = num1+num2;
+			
+			Escribir "La suma de los dos números es: ", formula;
+			Escribir "Presione cualquier tecla para continuar.";
+			Esperar Tecla;
+			
+		SiNo
+			Si opc == 2 Entonces
+				Limpiar Pantalla;
+				Escribir " --- Resta --- ";
+				Escribir "Ingrese primer número: ";
+				Leer num1;
+				Escribir "Ingrese segundo número: ";
+				Leer num2;
+				
+				formula = num1-num2;
+				
+				Escribir "La resta de los dos números es: ", formula;
+				Escribir "Presione cualquier tecla para continuar.";
+				Esperar Tecla;
+				
+			SiNo
+				Si opc == 3 Entonces
+					Limpiar Pantalla;
+					Escribir " --- Multiplicación --- ";
+					Escribir "Ingrese primer número: ";
+					Leer num1;
+					Escribir "Ingrese segundo número: ";
+					Leer num2;
+					
+					formula = num1*num2;
+					
+					Escribir "La multiplicación de los dos números es: ", formula;
+					Escribir "Presione cualquier tecla para continuar.";
+					Esperar Tecla;
+					
+				SiNo
+					Si opc == 4 Entonces
+						Limpiar Pantalla;
+						Escribir " --- División --- ";
+						Escribir "Ingrese primer número: ";
+						Leer num1;
+						Escribir "Ingrese segundo número: ";
+						Leer num2;
+						
+						formula = num1/num2;
+						
+						Escribir "La división de los dos números es: ", formula;
+						Escribir "Presione cualquier tecla para continuar.";
+						Esperar Tecla;
+						
+					SiNo
+						Si opc == 5 Entonces
+							Limpiar Pantalla;
+							Escribir "Saliendo del programa.";
+							Esperar 1 segundo;
+							Limpiar Pantalla;
+							Escribir "Saliendo del programa..";
+							Esperar 1 segundo;
+							Limpiar Pantalla;
+							Escribir "Saliendo del programa...";
+							Esperar 1 segundo;
+							Limpiar Pantalla;
+							Escribir "Saliendo del programa....";
+							Esperar 1 segundo;
+							condicion = falso;
+							
+						SiNo
+							Limpiar Pantalla;
+							Escribir "Opción no válida. Vuelta a intentar.";
+							Esperar 2 segundos;	
+						FinSi
+					FinSi
+				FinSi
+			FinSi
+		FinSi
+	FinMientras
+	
+FinProceso
+*
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                CONVERSOR DE TIEMPO
+
+*
+Proceso PSeInt4_Conversor_tiempo
+	
+	Definir condicion Como Logico;
+	Definir opc Como Entero;
+	Definir val, formula Como Real;
+	
+	condicion=verdadero;
+	opc=0;
+	val=0;
+	formula=0;	
+	
+	Mientras condicion == verdadero Hacer
+		Limpiar Pantalla;
+		Escribir " --- Conversor de tiempo --- ";
+		Escribir "Ingrese una opción: ";
+		Escribir "[1] Segundos a minutos.";
+		Escribir "[2] Minutos a horas.";
+		Escribir "[3] Horas a días.";
+		Escribir "[4] Salir del programa.";
+		Leer opc;
+		
+		Si opc == 1 Entonces
+			Limpiar Pantalla;
+			Escribir "Ingrese segundos a convertir: ";
+			Leer val;
+			
+			formula = val/60;
+			
+			Escribir val, " segundos equivalen a: ", formula, " minutos";
+			Escribir "Presione una tecla para continuar.";
+			Esperar Tecla;
+			
+		SiNo
+			Si opc == 2 Entonces
+				Limpiar Pantalla;
+				Escribir "Ingrese minutos a convertir: ";
+				Leer val;
+				
+				formula = val/60;
+				
+				Escribir val, " minutos equivalen a: ", formula, " horas";
+				Escribir "Presione una tecla para continuar.";
+				Esperar Tecla;
+				
+			SiNo
+				Si opc == 3 Entonces
+					Limpiar Pantalla;
+					Escribir "Ingrese horas a convertir: ";
+					Leer val;
+					
+					formula = val/24;
+					
+					Escribir val, " horas equivalen a: ", formula, " días";
+					Escribir "Presione una tecla para continuar.";
+					Esperar Tecla;
+					
+				SiNo
+					Si opc == 4 Entonces
+						Limpiar Pantalla;
+						Escribir "Saliendo del programa.";
+						Esperar 1 segundo;
+						Limpiar Pantalla;
+						Escribir "Saliendo del programa..";
+						Esperar 1 segundo;
+						Limpiar Pantalla;
+						Escribir "Saliendo del programa...";
+						Esperar 1 segundo;
+						Limpiar Pantalla;
+						Escribir "Saliendo del programa....";
+						Esperar 1 segundo;
+						condicion = falso;
+						
+					SiNo
+						Limpiar Pantalla;
+						Escribir "Opción no valida. Vuelva a intentar.";
+						Esperar 2 segundos;
+						
+						
+					FinSi
+				FinSi
+			FinSi
+		FinSi
+	FinMientras
+	
+	
+FinProceso
+*
